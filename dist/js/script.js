@@ -30,7 +30,7 @@ btnLeft.onclick = () => {
 
 function moveRght() {
     if (currentImage + 1 > max) {
-        currentImage = 1;
+        currentImage = min;
     } else {
         currentImage++;
     }
@@ -39,7 +39,7 @@ function moveRght() {
 }
 function moveLeft() {
     if (currentImage <= min) {
-        currentImage = 5;
+        currentImage = max;
     } else {
         currentImage--;
     }
@@ -65,10 +65,13 @@ function rebootInterval() {
 
 //time function
 
-function currentTime() {
-    let date = new Date();
 
+
+
+
+function currentTime() {
     //for hours
+    let date = new Date();
 
     let hours = date.getHours();
 
@@ -101,7 +104,7 @@ function currentTime() {
     let sec = date.getSeconds();
     let newSec1 = parseInt(sec.toString()[0]);
     let newSec2 = parseInt(sec.toString()[1]);
-    if (sec < 10) {
+    if (sec < 9) {
         secEl1.setAttribute(`src`, `img/0.png`);
         secEl2.setAttribute(`src`, `img/${sec}.png`);
     } else {
